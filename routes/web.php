@@ -21,7 +21,7 @@ Route::get('/', function () {
  * Test route
  */
 Route::get('/test', function () {
-    $categories = \App\Models\Category::all();
+    $categories = \Illuminate\Support\Facades\DB::table('categories')->get();
 
     return view('test', [
         'categories' => $categories
