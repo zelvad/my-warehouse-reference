@@ -17,11 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+/**
+ * Test route
+ */
 Route::get('/test', function () {
-    $url = "https://online.moysklad.ru/api/remap/1.2/entity/productfolder/69926c81-ba2e-11eb-0a80-02cc000b9ba0";
+    $categories = \App\Models\Category::all();
 
-    $war = new \Zelvad\MyWarehouse\Http\HttpClient(env('MY_WAREHOUSE_API_TOKEN'));
-
-    dd($war->curl($url, 'GET'));
+    return view('test', [
+        'categories' => $categories
+    ]);
 });
